@@ -1,0 +1,18 @@
+{
+  "name": "templ",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.19.11",
+    "esbuild-register": "^3.5.0",
+    "@types/node": "^20.10.8"
+  },
+  "dependencies": {
+    "html-to-ast": "^0.0.6"
+  },
+  "scripts": {
+    "start": "node -r esbuild-register index.ts",
+    "build": "esbuild sample.ts --outfile=sample.js --bundle"
+  }
+}

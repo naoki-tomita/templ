@@ -1,0 +1,3 @@
+import { createElement, render } from "./runtime.ts";
+const elements = [createElement({"tag":"div","props":{},"children":["\n  ",{"tag":"div","props":{},"children":["{{ count }}"]}," ",{"tag":"button","props":{"onclick":"{{ increment }}"},"children":["increment"]}," "]}), createElement(" "), createElement({"tag":"script","props":{},"children":["\nlet count = 0;\nfunction increment() {\n  count++;\n}\n"]})];
+render(elements, document.body);
