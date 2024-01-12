@@ -1,6 +1,6 @@
 <div>
   <div>{{ count }}</div>
-  <button onclick="{{ increment }}">increment</button>
+  <button onclick="console.log(1 + 1)">increment</button>
 </div>
 <script>
 let count = 0;
