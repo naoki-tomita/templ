@@ -24,7 +24,7 @@ export function createElement(doc: Doc | string): Node {
         .keys(__state__)
         .reduce((c, k) => c.replace(new RegExp(`\s*(${k})[\s\.]*`, "g"), "__state__.$1"), v.toString());
       el[k] = function() {
-        eval(code);
+        new Function(code)();
         rerender();
       }
     } else {

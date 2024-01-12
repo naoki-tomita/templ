@@ -1,7 +1,7 @@
 (() => {
-  // tmpDPar4q/runtime.ts
+  // tmpZ3zRPy/runtime.ts
   function inject(text, object) {
-    return Object.entries(object).reduce((t, [k2, v2]) => t.replace(new RegExp(`{{\\s*${k2}\\s*}}`, "g"), v2.toString()), text);
+    return Object.entries(object).reduce((t, [k, v]) => t.replace(new RegExp(`{{\\s*${k}\\s*}}`, "g"), v.toString()), text);
   }
   function createElement(doc) {
     if (typeof doc === "string")
@@ -14,7 +14,7 @@
       if (k.startsWith("on")) {
         const code = Object.keys(__state__).reduce((c, k2) => c.replace(new RegExp(`s*(${k2})[s.]*`, "g"), "__state__.$1"), v.toString());
         el[k] = function() {
-          eval(code);
+          new Function(code)();
           rerender();
         };
       } else {
@@ -44,12 +44,12 @@
     rerender();
   }
 
-  // tmpDPar4q/index.ts
+  // tmpZ3zRPy/index.ts
   window.__state__ = {};
   __state__.count = 0;
   __state__.increment = function() {
     __state__.count++;
   };
-  var elements2 = [{ "tag": "div", "props": {}, "children": ["\n  ", { "tag": "div", "props": {}, "children": ["{{ count }}"] }, " ", { "tag": "button", "props": { "onclick": "console.log(1 + 1)" }, "children": ["increment"] }, " "] }, " "];
+  var elements2 = [{ "tag": "div", "props": {}, "children": ["\n  ", { "tag": "div", "props": {}, "children": ["{{ count }}"] }, " ", { "tag": "button", "props": { "onclick": "increment()" }, "children": ["increment"] }, " "] }, " "];
   render(elements2, document.body);
 })();
