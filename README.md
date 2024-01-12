@@ -1,3 +1,10 @@
+# templ
+
+Frontend framework.
+
+## sample
+
+```svelte
 <div>
   <div>{{ count }}</div>
   <button onclick="increment()">increment</button>
@@ -8,3 +15,4 @@ function increment() {
   count++;
 }
 </script>
+```
